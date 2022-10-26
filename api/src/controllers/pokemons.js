@@ -1,12 +1,30 @@
 const pokemons_base = require('../models/Pokemon')
 const axios = require('axios')
 
-const controller = {
-    // get_pokemons_api: async () => {
-    //     const url = await axios.get('https://pokeapi.co/api/v2/pokemon');
-    //     const data = await url.data;
-    //     console.log(data)
-    // },
+const getPokemonsApi = async () => {
+        const url = await axios.get('https://pokeapi.co/api/v2/pokemon');
+        const data = url.data.results.map(e => {
+            return {
+                name: e.name,
+                info: e.url
+            }
+            // return async () => {
+            //     const pokemonUrl = await axios.get(e.url)
+            //     // const pokemonInfo = await pokemonUrl
+            //     return pokemonUrl}
+            })
+
+        console.log(data.info);//no vas a poser xq data es un arreglo, no cada objeto
+        return data;
+    }
+
+// const pokeInfo = async () => {    
+
+//         const url = await axios.get(getPokemonsApi.info)
+//         const data = url.data
+//         console.log(data)
+//     }
+
 
     // get_con_f: async () => {
     //     const res = await fetch('https://pokeapi.co/api/v2/pokemon');
@@ -14,13 +32,5 @@ const controller = {
     //     return data
     // },
 
-    getMovies: (title) => async () => {
-        const res = await fetch(`http://www.omdbapi.com/?&apikey=4352d24e&s=${title}`);
-        const data = await res.json();
-        return console.log(data)
-           
-    }
-}
-
-console.log(controller.getMovies('Manuelita'))
-
+// console.log(controller.getPokemonsApi())
+console.log(getPokemonsApi())
