@@ -4,14 +4,14 @@ const Pokemon = require('../models/Pokemon');
 const Type = require('../models/Type');
 const router = Router()
 
-router.get('/pokemons', async (req, res) => {
+router.get('/', async (req, res) => {
     await pokemons;
     pokemons ?
         res.status(200).send(pokemons) :
         res.status(404).send('pagina no encontrada')
 })
 
-router.post('/pokemon', async (req, res) => {
+router.post('/', async (req, res) => {
 
     let  {
         id,
@@ -46,3 +46,5 @@ router.post('/pokemon', async (req, res) => {
     pokemonCreated.addType(typeDb)
     res.send('¡Pokemon creado con exito!')
 })
+
+module.exports = router;
