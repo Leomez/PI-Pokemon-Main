@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> ab923324b058616b3c69b6e79f6bf865f9a7d1a9
 const axios = require('axios');
 const { Pokemon, Type } = require('../db')
 
@@ -65,6 +69,17 @@ const getAllPokemons = async () => {
 }
 
 module.exports = { getAllPokemons }
+<<<<<<< HEAD
 
 
+=======
+
+
+
+
+
+
+
+
+>>>>>>> ab923324b058616b3c69b6e79f6bf865f9a7d1a9
 
