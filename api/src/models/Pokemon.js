@@ -13,10 +13,13 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    hp: {
-      type: DataTypes.INTEGER      
+    img: {
+      type: DataTypes.STRING
     },
-    attack:{
+    hp: {
+      type: DataTypes.INTEGER
+    },
+    attack: {
       type: DataTypes.INTEGER
     },
     defense: {
@@ -31,6 +34,6 @@ module.exports = (sequelize) => {
     height: {
       type: DataTypes.INTEGER
     }
-  }); 
+  });
 
 };
