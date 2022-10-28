@@ -1,5 +1,8 @@
 const axios = require('axios');
 const { Pokemon, Type } = require('../db')
+// const PokemonModel = require('../models/Pokemon');
+// const TypeModel = require('../models/Type');
+
 
 
 const getPokemonsApi = async () => {
@@ -63,6 +66,8 @@ const getAllPokemons = async () => {
         console.log(error);
     }
 }
+
+
 
 module.exports = { getAllPokemons }
 

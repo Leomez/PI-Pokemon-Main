@@ -1,7 +1,8 @@
 const { getAllPokemons } = require('../controllers/pokemons')
 const { Router } = require('express');
-const Pokemon = require('../models/Pokemon');
-const Type = require('../models/Type');
+const { Pokemon, Type } = require('../db')
+// const Pokemon = require('../models/Pokemon');
+// const Type = require('../models/Type');
 const router = Router()
 
 router.get('/', async (req, res) => {
@@ -17,10 +18,8 @@ router.get('/', async (req, res) => {
     }        
 })
 
-router.post('/', async (req, res) => {
-    
+router.post('/', async (req,res) => {
     let  {
-        id,
         name,
         img,
         hp,
@@ -32,8 +31,7 @@ router.post('/', async (req, res) => {
         type
     } = req.body
 
-    let pokemonCreated = await Pokemon.create({
-        id,
+    let pokemonCreated = await Pokemon.create ({
         name,
         img,
         hp,
@@ -41,16 +39,15 @@ router.post('/', async (req, res) => {
         defense,
         speed,
         weight,
-        height,
-
+        height
     })
 
-    let typeDb = await Type.finAll({
+    let typeDb = await Type.findAll({
         where: {name: type}
     })
 
     pokemonCreated.addType(typeDb)
     res.send('¡Pokemon creado con exito!')
-})
+    })
 
 module.exports = router;
