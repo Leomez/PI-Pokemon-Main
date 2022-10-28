@@ -18,9 +18,9 @@ const getPokemonsApi = async () => {
                 img: el.data.sprites.other.home.front_default,
                 name: el.data.name,
                 id: el.data.id,
-                types: el.data.types,
+                types: el.data.types.map(el => el.type.name),
                 height: el.data.height,
-                stats: el.data.stats,
+                stats: el.data.stats.map(el => el),
                 weight: el.data.weight
             }
             // console.log(pokemon);
@@ -37,7 +37,7 @@ const getPokemonsApi = async () => {
 const getPokemonsDb = async () => {
     try {
         return await Pokemon.findAll({
-            attributes: ['img', 'name', 'id', 'types', 'height', 'stats', 'weight'],
+            // attributes: ['img', 'name', 'id', 'types', 'height', 'stats', 'weight'],
             include: {
                 model: Type,
                 attributes: ['name'],

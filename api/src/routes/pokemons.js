@@ -1,18 +1,24 @@
-const pokemons = require('../controllers/pokemons')
+const { getAllPokemons } = require('../controllers/pokemons')
 const { Router } = require('express');
 const Pokemon = require('../models/Pokemon');
 const Type = require('../models/Type');
 const router = Router()
 
 router.get('/', async (req, res) => {
-    await pokemons;
-    pokemons ?
-        res.status(200).send(pokemons) :
-        res.status(404).send('pagina no encontrada')
+    const name = req.query.name
+    let allPokemons = await getAllPokemons()
+    if (name) {
+        let pokemon = allPokemons.filter(el => el.name.toLowerCase().includes(name.toLowerCase()))
+        pokemon.length?
+        res.status(200).send(pokemon) :
+        res.status(404).send('pokemon no encontrado')
+    } else {
+        res.status(200).send(allPokemons)
+    }        
 })
 
 router.post('/', async (req, res) => {
-
+    
     let  {
         id,
         name,
