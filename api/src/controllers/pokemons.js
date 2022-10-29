@@ -18,13 +18,16 @@ const getPokemonsApi = async () => {
         detalle = detalle.map(el => {
 
             let pokemon = {
-                img: el.data.sprites.other.home.front_default,
-                name: el.data.name,
                 id: el.data.id,
+                name: el.data.name,
+                img: el.data.sprites.other.home.front_default,
+                hp: el.data.stats[0].base_stat,
+                attack: el.data.stats[1].base_stat,
+                defense: el.data.stats[2].base_stat,
+                speed: el.data.stats[5].base_stat,
+                weight: el.data.weight,
+                height: el.data.height,                
                 types: el.data.types.map(el => el.type.name),
-                height: el.data.height,
-                stats: el.data.stats.map(el => el),
-                weight: el.data.weight
             }
             // console.log(pokemon);
             return pokemon

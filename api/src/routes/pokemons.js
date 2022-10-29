@@ -18,28 +18,30 @@ router.get('/', async (req, res) => {
     }        
 })
 
+router.get('/:id', async (req, res) => {
+    const id = req.params.id;
+    let allPokemons = await getAllPokemons()
+    if(id) {
+        let pokemon = allPokemons.filter(el => el.id == id)
+        pokemon?
+        res.status(200).send(pokemon):
+        res.status(404).send('pokemon no encontrado')
+    }
+})
+
 router.post('/', async (req,res) => {
-    let  {
-        name,
-        img,
-        hp,
-        attack,
-        defense,
-        speed,
-        weight,
-        height,
-        type
-    } = req.body
+    //si puedo refactorizo...
+    let { type } = req.body
 
     let pokemonCreated = await Pokemon.create ({
-        name,
-        img,
-        hp,
-        attack,
-        defense,
-        speed,
-        weight,
-        height
+        name : req.body.name,
+        img : req.body.img,
+        hp : req.body.hp,
+        attack : req.body.attack,
+        defense : req.body.defense,
+        speed : req.body.speed,
+        weight : req.body.weight,
+        height : req.body.height
     })
 
     let typeDb = await Type.findAll({
@@ -47,6 +49,7 @@ router.post('/', async (req,res) => {
     })
 
     pokemonCreated.addType(typeDb)
+    console.log(pokemonCreated);
     res.send('¡Pokemon creado con exito!')
     })
 
