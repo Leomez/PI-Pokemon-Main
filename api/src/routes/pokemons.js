@@ -6,27 +6,37 @@ const { Pokemon, Type } = require('../db')
 const router = Router()
 
 router.get('/', async (req, res) => {
-    const name = req.query.name
-    let allPokemons = await getAllPokemons()
-    if (name) {
-        let pokemon = allPokemons.filter(el => el.name.toLowerCase().includes(name.toLowerCase()))
-        pokemon.length?
-        res.status(200).send(pokemon) :
-        res.status(404).send('pokemon no encontrado')
-    } else {
-        res.status(200).send(allPokemons)
-    }        
+
+    try {
+        const name = req.query.name
+        let allPokemons = await getAllPokemons()
+        if (name) {
+            let pokemon = allPokemons.filter(el => el.name.toLowerCase().includes(name.toLowerCase()))
+            pokemon.length?
+            res.status(200).send(pokemon) :
+            res.status(404).send('pokemon no encontrado')
+        } else {
+            res.status(200).send(allPokemons)
+        }   
+    } catch (error) {
+        res.status(400).send(error)
+    }            
 })
 
 router.get('/:id', async (req, res) => {
-    const id = req.params.id;
+    try {
+        const id = req.params.id;
     let allPokemons = await getAllPokemons()
     if(id) {
         let pokemon = allPokemons.filter(el => el.id == id)
-        pokemon?
+        pokemon.length?
         res.status(200).send(pokemon):
         res.status(404).send('pokemon no encontrado')
+    }    
+    } catch (error) {
+        res.json(error)   
     }
+    
 })
 
 router.post('/', async (req,res) => {
