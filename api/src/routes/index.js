@@ -12,4 +12,5 @@ const router = Router();
 router.use('/types', types)
 router.use('/pokemons', pokemons)
 
+
 module.exports = router;
