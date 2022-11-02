@@ -1,14 +1,23 @@
 import React from "react";
+import './PokemonCard.css'
 
 const PokemonCard = (props) => {
-    <div>
+    return (
         <div className="card">
-            <div class="inner">
-                <h2 class="title">Mit 117 Sachen durch Klugheimschen Basaltgebirge</h2>
-                <time class="subtitle">03. März 2021</time>
-                
+            <div className="inner">
+                <div><img className="img" src={props.img} alt={props.name} /></div>
+                <h2 className="title">
+                    {props.name}
+                </h2>
+                <h3>Tipos: {props.types.map(t => {
+                    return (<span>{t}</span>)
+                })}
+                </h3>
+
             </div>
 
         </div>
-    </div>
+    )
 }
+
+export default PokemonCard

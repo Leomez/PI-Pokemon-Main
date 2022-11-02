@@ -3,6 +3,7 @@ import './Home.css'
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getAllPokemons } from "../../Redux/actions";
+import PokemonCard from "../PokemonCard/PokemonCard";
 const Home = () => {
 
     const pokemons = useSelector(state => state.pokemons)
@@ -15,10 +16,23 @@ const Home = () => {
                 <h1>Aca van los pokemons</h1>
             </div>
             <hr></hr>
-            {
-                pokemons.map(p => <span>{p.name} </span>)
+            <div className="results">
+                {
+                    pokemons.map(p => {
+                        return (
+                            console.log(p),
+                            <PokemonCard
+                                key={p.id}
+                                img={p.img}
+                                name={p.name}
+                                types={p.types}
+                            />
+                        )
+                    })
 
-            }
+                }
+
+            </div>
 
         </div>
     )
