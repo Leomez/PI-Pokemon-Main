@@ -1,17 +1,4 @@
-@font-face {
-  font-family:PokemonHollow ;
-  src: url('./font/PokemonHollow.ttf');
-  font-family: PokemonSolid;
-  src: url('./font/PokemonSolid.ttf');
-  font-family: PokemonClassic;
-  src: url('./font/PokemonClassic.ttf');  
-}
 
-:root{
-  --pokemon-font-hollw: PokemonHollow;
-  --pokemon-font-solid: PokemonSolid;
-  --pokemon-font-classic: PokemonClassic;
-}
 
 body {
   margin: 0;
@@ -20,8 +7,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #111b21;
-  color: #d1d7db;
+  background-color: #414141;
+  color: #f0f0f0;
 }
 
 code {

@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getAllPokemons } from "../../Redux/actions";
 import PokemonCard from "../PokemonCard/PokemonCard";
+import SearchBar from "../SearchBar/SearchBar";
 const Home = () => {
 
     const pokemons = useSelector(state => state.pokemons)
@@ -13,7 +14,12 @@ const Home = () => {
     return (
         <div>
             <div className="banner">
-                <h1>Aca van los pokemons</h1>
+                <div >
+                    <img className="bannerImg" src="../../Img/pokemon.png" alt="" />
+                </div>
+                <div className="searchBar">
+                    <SearchBar/>
+                </div>                
             </div>
             <hr></hr>
             <div className="results">
