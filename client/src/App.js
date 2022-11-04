@@ -9,13 +9,14 @@ function App() {
   return (
     <div className="App">
 
+    <Route exact path="/">
+      <Landing />
+    </Route>
+    
     <Route path={'/'}>
       <Nav />
     </Route>
 
-    <Route exact path="/">
-      <Landing />
-    </Route>
 
     <Route exact path="/pokemons">
       <Home />

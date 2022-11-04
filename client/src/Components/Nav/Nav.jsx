@@ -1,19 +1,23 @@
 import React from "react";
+import './Nav.css'
 import { Link } from "react-router-dom"
 
 const Nav = () => {
     
         return (
-            <div>
+            <div className="nav">
                 <Link to={'/'}>
-                    <span><img src="../../logo.svg" alt="logo" /></span>
+                    <span className="logo"><img src="../../Img/Henry-Pokemon.png" alt="logo" /></span>
                 </Link>
-                <Link to={'/pokemons'}>
-                    Home
-                </Link>
-                <Link to={'/create'}>
-                    Create
-                </Link>
+                <div className="buttons">
+                    <Link to={'/pokemons'}>
+                        Home
+                    </Link>
+                    <Link to={'/create'}>
+                        Create
+                    </Link>
+
+                </div>
             </div>
         )
  
