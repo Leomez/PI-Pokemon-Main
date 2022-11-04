@@ -13,19 +13,20 @@ function App() {
       <Landing />
     </Route>
     
-    <Route path={'/'}>
+    <Route path={'/pokemon'}>
       <Nav />
     </Route>
 
 
-    <Route exact path="/pokemons">
+    <Route exact path="/pokemon">
       <Home />
     </Route>
 
-    <Route exact path="/create">
+    <Route exact path="/pokemon/create">
       <Create />
     </Route>
 
+    
 
       {/* <h1>Henry Pokemon</h1> */}
     </div>

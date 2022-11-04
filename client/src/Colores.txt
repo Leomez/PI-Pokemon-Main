@@ -3,3 +3,7 @@ rgba(233,237,239,0.2)
 rgba(52,70,81,0.3)
 rgba(233,237,239,0.2)
 #d1d7db
+
+
+
+https://proyect-pokemons.vercel.app/

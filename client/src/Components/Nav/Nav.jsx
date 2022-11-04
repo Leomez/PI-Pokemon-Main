@@ -10,10 +10,10 @@ const Nav = () => {
                     <span className="logo"><img src="../../Img/Henry-Pokemon.png" alt="logo" /></span>
                 </Link>
                 <div className="buttons">
-                    <Link to={'/pokemons'}>
+                    <Link to={'/pokemon'}>
                         Home
                     </Link>
-                    <Link to={'/create'}>
+                    <Link to={'pokemon/create'}>
                         Create
                     </Link>
 

@@ -3,19 +3,22 @@
     src: url('../../font/PokemonHollow.ttf');
 }
 
+.container{
+    display: flex;
+}
 
 .button{
-    width: 25rem;
+    width: 20rem;
     display: flex;
     position: relative;
-    left: 1200px;
-    top: 250px;
+    right: 50px;
+    top: 70px;
 }
 
 .landing{
     background-image: url('./fondo-landing.png');
     background-size: contain;
     background-repeat: no-repeat;
-    width: 800;
-    height: 700px;
+    width: 960px;
+    height: 600px;
 }
