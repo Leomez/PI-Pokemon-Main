@@ -6,20 +6,22 @@ import { getAllPokemons } from "../../Redux/actions";
 
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import Paginado from "../Paginado/Paginado";
 
 const Home = () => {
+    const pokemons = useSelector(state => state.pokemons)
 
-    const {currentPage, setCurrentPage} = useState(1)  //los estados locales los puedo manejar con useState
-    const {elementXPage, setElementXPage} = useState(6)
+    const [ currentPage, setCurrentPage ] = useState(1)  //los estados locales los puedo manejar con useState
+    const [ elementXPage, setElementXPage ] = useState(12)
     const indexOfLastElement = currentPage * elementXPage;
     const indexOfFirstElement = elementXPage - indexOfLastElement;
+    const currentElements = pokemons.slice(indexOfFirstElement, indexOfLastElement);
 
     const paginated = (pageNumber) => {
-        setCurrentPage(pageNumber)      
+        setCurrentPage(pageNumber)
 
     }
 
-    const pokemons = useSelector(state => state.pokemons)
     const disapatch = useDispatch();
     useEffect(() => disapatch(getAllPokemons()), [])
 
@@ -35,11 +37,11 @@ const Home = () => {
                     <img className="bannerImg" src="../../Img/pokemon.png" alt="" />
                 </div>
                 <div className="searchBar">
-                    <SearchBar/>
-                </div>                
+                    <SearchBar />
+                </div>
             </div>
             <hr></hr>
-            <button onClick = {e=>{handleClick(e)}}>
+            <button onClick={e => { handleClick(e) }}>
                 recargar
             </button>
             <select>
@@ -56,11 +58,17 @@ const Home = () => {
             <select name="Tipo" id="">
                 <option value="all">Todos</option>
 
-            </select>
+            </select>            
+            <Paginado
+                elementXPage={elementXPage}
+                pokemons={pokemons}
+                paginated={paginated}
+            />
 
             <div className="results">
+
                 {
-                   pokemons && pokemons.map(p => {
+                    currentElements && currentElements.map(p => {
                         return (
                             // console.log(p),
                             <PokemonCard
@@ -75,6 +83,7 @@ const Home = () => {
                 }
 
             </div>
+            
 
         </div>
     )

@@ -11,7 +11,9 @@ const PokemonCard = (props) => {
                     {props.name}
                 </h2>
                 <h3>Types: {props.types.map(t => {
-                    return (<span className="types">{`${t} `}</span>)
+                    return (
+                    <span className="types" key={t} >{`${t} `}</span>
+                    )
                 })}
                 </h3>
 

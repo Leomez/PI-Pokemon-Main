@@ -7,3 +7,6 @@ rgba(233,237,239,0.2)
 
 
 https://proyect-pokemons.vercel.app/
+
+
+https://www.creativosonline.org/menu-html-css.html  (estilos de nav)

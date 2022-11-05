@@ -1,0 +1,14 @@
+
+.paginated{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 720px;
+    margin: 0 auto;
+    height: 10vh;
+    list-style: none;
+}
+.pag{
+    display: flex;
+    text-decoration: none;
+}
