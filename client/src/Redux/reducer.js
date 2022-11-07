@@ -1,5 +1,5 @@
 // import ADD_POKEMON from './actionType'
-import { GET_ALL_POKEMONS } from './actionType'
+import { GET_ALL_POKEMONS, GET_POKEMON_BY_ID } from './actionType'
 // import GET_POKEMON_BY_NAME from './actionType'
 // import GET_POKEMON_BY_ID from './actionType'
 // import GET_POKEMONS_BY_TYPE from './actionType'
@@ -20,7 +20,14 @@ export default function reducer(state = initialState, action) {
                 ...state,
                 pokemons: action.payload
             }
-        } 
+        }
+        
+        case GET_POKEMON_BY_ID: {
+            return {
+                ...state,
+                pokemonDetails: action.payload
+            }
+        }
         default:
             return state
     }

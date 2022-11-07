@@ -4,6 +4,7 @@ import Landing from './Components/Landing/Landing';
 import Home from './Components/Home/Home';
 import Create from './Components/Create/Create';
 import Nav from './Components/Nav/Nav';
+import Detail from './Components/Detalle/Detail';
 
 function App() {
   return (
@@ -26,6 +27,10 @@ function App() {
       <Create />
     </Route>
 
+    
+    <Route exact path={"/pokemon/:id"}>
+      <Detail />
+    </Route>
     
 
       {/* <h1>Henry Pokemon</h1> */}

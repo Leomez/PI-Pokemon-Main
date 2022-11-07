@@ -3,26 +3,31 @@ import './Home.css'
 import PokemonCard from "../PokemonCard/PokemonCard";
 import SearchBar from "../SearchBar/SearchBar";
 import { getAllPokemons } from "../../Redux/actions";
+import { Link } from "react-router-dom";
 
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Paginado from "../Paginado/Paginado";
 
 const Home = () => {
-    const pokemons = useSelector(state => state.pokemons)
+    const disapatch = useDispatch();
+    const pokemons = useSelector((state) => state.pokemons)
 
     const [ currentPage, setCurrentPage ] = useState(1)  //los estados locales los puedo manejar con useState
     const [ elementXPage, setElementXPage ] = useState(12)
     const indexOfLastElement = currentPage * elementXPage;
-    const indexOfFirstElement = elementXPage - indexOfLastElement;
-    const currentElements = pokemons.slice(indexOfFirstElement, indexOfLastElement);
+    const indexOfFirstElement = indexOfLastElement - elementXPage ;
+    let currentElements = pokemons.slice(indexOfFirstElement, indexOfLastElement);
+
+    console.log(`pag ${currentPage}`);
+    console.log(`primer elemento ${indexOfFirstElement}`);
+    console.log(`ultimo elemento ${indexOfLastElement}`);
 
     const paginated = (pageNumber) => {
         setCurrentPage(pageNumber)
 
     }
-
-    const disapatch = useDispatch();
+        
     useEffect(() => disapatch(getAllPokemons()), [])
 
     const handleClick = (e) => {
@@ -70,13 +75,15 @@ const Home = () => {
                 {
                     currentElements && currentElements.map(p => {
                         return (
-                            // console.log(p),
-                            <PokemonCard
-                                key={p.id}
-                                img={p.img}
-                                name={p.name}
-                                types={p.types}
-                            />
+                            console.log(p),
+                            <Link to={`/pokemon/${p.id}`}>
+                                <PokemonCard
+                                    key={p.id}
+                                    img={p.img}
+                                    name={p.name}
+                                    types={p.types}
+                                />
+                            </Link>
                         )
                     })
 
