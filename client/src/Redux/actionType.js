@@ -2,5 +2,5 @@ export const ADD_POKEMON = 'ADD_POKEMON';
 export const GET_ALL_POKEMONS = 'GET_ALL_POKEMONS';
 export const GET_POKEMON_BY_NAME = 'GET_POKEMON_BY_NAME';
 export const GET_POKEMON_BY_ID = 'GET_POKEMON_BY_ID';
-export const GET_POKEMONS_BY_TYPE = 'GET_POKEMONS_BY_TYPE';
+export const FILTER_BY_TYPE = 'FILTER_BY_TYPE';
 export const GET_TYPES = 'GET_TYPES'
