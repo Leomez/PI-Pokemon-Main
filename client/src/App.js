@@ -28,9 +28,7 @@ function App() {
     </Route>
 
     
-    <Route exact path={"/pokemon/:id"}>
-      <Detail />
-    </Route>
+    <Route exact path="/pokemon/:id" component={Detail}/>
     
 
       {/* <h1>Henry Pokemon</h1> */}

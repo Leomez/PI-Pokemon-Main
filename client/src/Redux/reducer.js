@@ -9,7 +9,7 @@ import { GET_ALL_POKEMONS, GET_POKEMON_BY_ID } from './actionType'
 
 const initialState = {
     pokemons: [],
-    pokemonDetails: {},
+    pokemonDetails: [],
     types: []
 }
 

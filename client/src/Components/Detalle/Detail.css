@@ -1,0 +1,36 @@
+.mainContainer{
+    align-items: center;    
+    padding: 10%;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 980px;
+    background: #515151;
+    border-radius: 3px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    color: #f0f0f0;
+    box-sizing: border-box;
+}
+
+.description{
+    display: flex;
+    box-sizing: border-box;
+    justify-content: center;
+    width: 100%;
+}
+
+.descImg{
+    width: 50%;
+    background: #727272;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    /* border: 1px solid #ffde00; */
+    padding: 1.5rem;
+    border-radius: 13px;
+}
+.descInfo{
+    display: flex;
+    padding-left: 3rem;
+    justify-content: flex-start;
+}

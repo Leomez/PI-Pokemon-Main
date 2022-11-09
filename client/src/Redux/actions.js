@@ -16,8 +16,7 @@ export const getAllPokemons = () => async dispatch => {
 }
 
 export const getPokemonById = (id) => async dispatch => {
-    const res = await axios.get(`http://localhost:3001/pokemons/${id}`)
-    console.log(res.data);
+    const res = await axios.get(`http://localhost:3001/pokemons/${id}`)    
     return dispatch({
         type: GET_POKEMON_BY_ID,
         payload: res.data
