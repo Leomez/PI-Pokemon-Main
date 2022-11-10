@@ -11,7 +11,7 @@ import Paginado from "../Paginado/Paginado";
 import Filters from "../Filters/Filters";
 
 const Home = () => {
-    const disapatch = useDispatch();
+    const dispatch = useDispatch();
     const pokemons = useSelector((state) => state.pokemons)
 
     const [currentPage, setCurrentPage] = useState(1)  //los estados locales los puedo manejar con useState
@@ -24,12 +24,7 @@ const Home = () => {
         setCurrentPage(pageNumber)
     }
 
-    useEffect(() => disapatch(getAllPokemons()), [])
-
-    const handleClick = (e) => {
-        e.preventDefault()
-        disapatch(getAllPokemons())
-    }
+    useEffect(() => dispatch(getAllPokemons()), [])    
 
     return (
         <div>
@@ -44,7 +39,7 @@ const Home = () => {
             <hr></hr>
 
             <div className="filters">
-                <Filters handleClick= {handleClick} />                   
+                <Filters/>                   
             </div>
             
             <Paginado

@@ -46,7 +46,7 @@ const getPokemonsDb = async () => {
             // attributes: ['img', 'name', 'id', 'types', 'height', 'stats', 'weight'],
             include: {
                 model: Type,
-                attributes: ['name'],
+                attributes: ['name'].map(n => n),
                 through: {
                     attributes: [],
                 }

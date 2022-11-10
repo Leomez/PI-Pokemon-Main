@@ -1,9 +1,6 @@
 // import ADD_POKEMON from './actionType'
-import { GET_ALL_POKEMONS, GET_POKEMON_BY_ID, GET_TYPES, FILTER_BY_TYPE } from './actionType'
+import { GET_ALL_POKEMONS, GET_POKEMON_BY_ID, GET_TYPES, FILTER_BY_TYPE, FILTER_BY_CREATE, ORDER_BY_NAME } from './actionType'
 // import GET_POKEMON_BY_NAME from './actionType'
-// import GET_POKEMON_BY_ID from './actionType'
-// import GET_POKEMONS_BY_TYPE from './actionType'
-// import GET_TYPES from './actionType'
 import axios from 'axios'
 
 
@@ -34,6 +31,23 @@ export const getTypes = () => async dispatch => {
 export const filterByType = (payload) => {
     return {
         type: FILTER_BY_TYPE,
+        payload
+    }
+}
+
+export const filterByCreate = (payload) => {
+    if (payload === 'Creates') payload = 'string';
+    if (payload === 'Existing') payload = 'number';
+    
+    return {
+        type: FILTER_BY_CREATE,
+        payload
+    }
+}
+
+export const orderByName = (payload) => {
+    return {
+        type: ORDER_BY_NAME,
         payload
     }
 }

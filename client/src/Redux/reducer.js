@@ -1,5 +1,5 @@
 // import ADD_POKEMON from './actionType'
-import { GET_ALL_POKEMONS, GET_POKEMON_BY_ID, GET_TYPES, FILTER_BY_TYPE } from './actionType'
+import { GET_ALL_POKEMONS, GET_POKEMON_BY_ID, GET_TYPES, FILTER_BY_TYPE, FILTER_BY_CREATE, ORDER_BY_NAME } from './actionType'
 // import GET_POKEMON_BY_NAME from './actionType'
 // import GET_POKEMON_BY_ID from './actionType'
 // import FILTER_BY_TYPE from './actionType'
@@ -9,8 +9,8 @@ import { GET_ALL_POKEMONS, GET_POKEMON_BY_ID, GET_TYPES, FILTER_BY_TYPE } from '
 
 const initialState = {
     pokemons: [],
-    pokemonDetails: [],
-    pokemonsByType: [],
+    allPokemons: [],
+    pokemonDetails: [],   
     types: []
 }
 
@@ -19,7 +19,8 @@ export default function reducer(state = initialState, action) {
         case GET_ALL_POKEMONS: {
             return {
                 ...state,
-                pokemons: action.payload
+                pokemons: action.payload,
+                allPokemons: action.payload
             }
         }
         
@@ -38,12 +39,40 @@ export default function reducer(state = initialState, action) {
         }
 
         case FILTER_BY_TYPE: {
-            const allPokemons = state.pokemons;
-            const leakedPokemons = action.payload === 'all'? allPokemons : allPokemons.filter(p => p.types.includes(action.payload))
+            const allPokemons = state.allPokemons;
+            const leakedPokemons = action.payload === 'All'? allPokemons : allPokemons.filter(p => p.types.includes(action.payload))
             console.log(action.payload);
             return {
                 ...state,
                 pokemons: leakedPokemons
+            }
+        }
+
+        case FILTER_BY_CREATE: {
+            const allPokemons = state.allPokemons;
+            const leakedPokemons = action.payload === 'All'? allPokemons : allPokemons.filter(p => typeof(p.id) === action.payload)
+            console.log(action.payload);
+            return {
+                ...state,
+                pokemons: leakedPokemons
+            }
+        }
+
+        case ORDER_BY_NAME: {
+            let sorted = action.payload === 'asc' ?
+            state.allPokemons.sort((a,b) => {
+                if(a.name > b.name) return 1;
+                if(a.name < b.name) return -1;
+                return 0;
+            }) : state.allPokemons.sort((a,b)=> {
+                if(a.name > b.name) return -1;
+                if(a.name < b.name) return 1;
+                return 0;
+            })
+            console.log(sorted);
+            return {
+                ...state,
+                pokemons: sorted
             }
         }
         default: 
