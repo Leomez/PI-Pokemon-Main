@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { filterByCreate, filterByType, getTypes, orderByName } from "../../Redux/actions";
+import { filterByCreate, filterByType, getTypes, orderByAttack, orderByName } from "../../Redux/actions";
 import './Filters.css'
 
 
@@ -12,15 +12,22 @@ const Filter = (props) => {
 
 
     function handleFilterByTypes(e) {
+        props.setCurrentPage(1)
         dispatch(filterByType(e.target.value))
     }
 
     function handleFilterByCreates(e) {
+        props.setCurrentPage(1)
         dispatch(filterByCreate(e.target.value))
     }
 
     function handleOrderByName(e) {
+        // props.setCurrentPage(1)
         dispatch(orderByName(e.target.value))
+    }
+
+    function handleOrderByAttack(e) {
+        dispatch(orderByAttack(e.target.value))
     }
 
     const handleClean = (e) => {
@@ -46,7 +53,7 @@ const Filter = (props) => {
                 </span>
 
                 <span> <p>Attack </p> 
-                    <select >
+                    <select onChange={(e) => handleOrderByAttack(e)}>
                         <option value="max">max</option>
                         <option value="min">min</option>
                     </select>

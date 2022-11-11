@@ -1,5 +1,14 @@
 // import ADD_POKEMON from './actionType'
-import { GET_ALL_POKEMONS, GET_POKEMON_BY_ID, GET_TYPES, FILTER_BY_TYPE, FILTER_BY_CREATE, ORDER_BY_NAME } from './actionType'
+import { 
+    GET_ALL_POKEMONS, 
+    GET_POKEMON_BY_ID, 
+    GET_TYPES, 
+    FILTER_BY_TYPE, 
+    FILTER_BY_CREATE, 
+    ORDER_BY_NAME,
+    ORDER_BY_ATTACK, 
+    GET_POKEMON_BY_NAME
+} from './actionType'
 // import GET_POKEMON_BY_NAME from './actionType'
 // import GET_POKEMON_BY_ID from './actionType'
 // import FILTER_BY_TYPE from './actionType'
@@ -28,6 +37,14 @@ export default function reducer(state = initialState, action) {
             return {
                 ...state,
                 pokemonDetails: action.payload
+            }
+        }
+
+        case GET_POKEMON_BY_NAME: {
+            console.log('llego al reducer...');
+            return {
+                ...state,
+                pokemons: action.payload
             }
         }
 
@@ -75,6 +92,24 @@ export default function reducer(state = initialState, action) {
                 pokemons: sorted
             }
         }
+
+        case ORDER_BY_ATTACK: {
+            let sorted = action.payload === 'min' ?
+            state.allPokemons.sort((a,b) => {
+                if(a.attack > b.attack) return 1;
+                if(a.attack < b.attack) return -1;
+                return 0;
+            }) : state.allPokemons.sort((a,b) => {
+                if(a.attack > b.attack) return -1;
+                if(a.attack > b.attack) return 1;
+                return 0
+            })
+            return {
+                ...state,
+                pokemons: sorted
+            }
+        }
+        
         default: 
             return state
     }

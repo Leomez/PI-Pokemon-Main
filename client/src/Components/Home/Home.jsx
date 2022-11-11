@@ -39,7 +39,7 @@ const Home = () => {
             <hr></hr>
 
             <div className="filters">
-                <Filters/>                   
+                <Filters setCurrentPage = {setCurrentPage}/>                   
             </div>
             
             <Paginado

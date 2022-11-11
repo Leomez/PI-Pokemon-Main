@@ -1,6 +1,16 @@
 // import ADD_POKEMON from './actionType'
-import { GET_ALL_POKEMONS, GET_POKEMON_BY_ID, GET_TYPES, FILTER_BY_TYPE, FILTER_BY_CREATE, ORDER_BY_NAME } from './actionType'
-// import GET_POKEMON_BY_NAME from './actionType'
+import { 
+    GET_ALL_POKEMONS, 
+    GET_POKEMON_BY_ID, 
+    GET_TYPES, 
+    FILTER_BY_TYPE, 
+    FILTER_BY_CREATE, 
+    ORDER_BY_NAME, 
+    ORDER_BY_ATTACK,
+    GET_POKEMON_BY_NAME, 
+    ADD_POKEMON
+} from './actionType'
+
 import axios from 'axios'
 
 
@@ -51,3 +61,33 @@ export const orderByName = (payload) => {
         payload
     }
 }
+
+export const orderByAttack = (payload) => {
+    return {
+        type: ORDER_BY_ATTACK,
+        payload
+    }
+}
+
+export const getPokemonByName =  (name) => async dispatch => {
+    const res = await axios.get(`http://localhost:3001/pokemons?name=${name}`)
+    try {
+        console.log(res.data);
+        return dispatch( {
+            type: GET_POKEMON_BY_NAME,
+            payload: res.data
+        })
+        
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+// export const addPokemon = (data) => async dispatch => {
+//     const res = await axios.post('http://localhost:3001/pokemons')
+//     return{
+//         type: ADD_POKEMON,
+//         payload: 
+
+//     }
+// }
