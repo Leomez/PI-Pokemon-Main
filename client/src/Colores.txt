@@ -10,3 +10,6 @@ https://proyect-pokemons.vercel.app/
 
 
 https://www.creativosonline.org/menu-html-css.html  (estilos de nav)
+
+
+https://www.youtube.com/watch?v=2RyTHpUbn5A  (estilo de input range)
