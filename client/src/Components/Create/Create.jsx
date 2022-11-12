@@ -25,7 +25,7 @@ const Create = () => {
 
     useEffect(() => dispatch(getTypes()), [])
 
-    
+
 
     // const bgrSize = () => {
     //     return { backgroundSize: `${(value * 100) / 10}% 100%` }
@@ -48,8 +48,68 @@ const Create = () => {
                     type="range"
                     value={input.hp}
                     name="hp"
-                    // style={bgrSize()}
-                    // onChange={e}
+                // style={bgrSize()}
+                // onChange={e}
+                />
+
+                <label>Health: </label>
+                <input
+                    max={100}
+                    type="range"
+                    value={input.hp}
+                    name="hp"
+                // style={bgrSize()}
+                // onChange={e}
+                />
+
+                <label>Attack: </label>
+                <input
+                    max={100}
+                    type="range"
+                    value={input.attack}
+                    name="hp"
+                // style={bgrSize()}
+                // onChange={e}
+                />
+
+                <label>Defense: </label>
+                <input
+                    max={100}
+                    type="range"
+                    value={input.defense}
+                    name="hp"
+                // style={bgrSize()}
+                // onChange={e}
+                />
+
+                <label>Speed: </label>
+                <input
+                    max={100}
+                    type="range"
+                    value={input.speed}
+                    name="hp"
+                // style={bgrSize()}
+                // onChange={e}
+                />
+
+                <label>Weight: </label>
+                <input
+                    max={100}
+                    type="range"
+                    value={input.weight}
+                    name="hp"
+                // style={bgrSize()}
+                // onChange={e}
+                />
+
+                <label>Height: </label>
+                <input
+                    max={100}
+                    type="range"
+                    value={input.height}
+                    name="hp"
+                // style={bgrSize()}
+                // onChange={e}
                 />
             </form>
         </div>
