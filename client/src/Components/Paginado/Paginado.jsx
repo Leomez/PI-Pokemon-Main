@@ -23,7 +23,7 @@ const Paginado = (props) => {
                     pageNumbers && pageNumbers.map(pag =>{ 
                        return (
                         <li className="pag" key={pag}>
-                            <a onClick={() => paginated(pag)}>{pag}</a>
+                            <button onClick={() => paginated(pag)}>{pag}</button>
                             {/* {console.log(pag)} */}
                         </li>
                             

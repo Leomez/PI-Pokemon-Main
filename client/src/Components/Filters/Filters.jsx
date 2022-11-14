@@ -8,7 +8,7 @@ import './Filters.css'
 const Filter = (props) => {
     const types = useSelector((state) => state.types)
     const dispatch = useDispatch()
-    useEffect(() => dispatch(getTypes()),[])
+    useEffect(() => dispatch(getTypes()),[dispatch])
 
 
     function handleFilterByTypes(e) {
@@ -71,7 +71,7 @@ const Filter = (props) => {
                 {
                     types?.map(t => {
                         return (
-                            <option value={`${t.name}`}>{`${t.name}`}</option>
+                            <option key={t.id} value={`${t.name}`}>{`${t.name}`}</option>
                         )
                     })
                 }

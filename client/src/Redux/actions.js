@@ -86,5 +86,8 @@ export const getPokemonByName =  (name) => async dispatch => {
 export const addPokemon = (data) =>  {
     const res = axios.post('http://localhost:3001/pokemons',data)
     console.log(res);
-    return res
+    return {
+        type:ADD_POKEMON,    
+        res
+    }
 }

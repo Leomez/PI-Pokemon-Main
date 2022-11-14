@@ -8,7 +8,7 @@ const Detail = (props) => {
 
     const detail = useSelector(state => state.pokemonDetails);
     const dispatch = useDispatch()
-    useEffect(() => dispatch(getPokemonById(props.match.params.id)), [dispatch])
+    useEffect(() => dispatch(getPokemonById(props.match.params.id)))
 
     const info = detail[0]
 
@@ -44,9 +44,9 @@ const Detail = (props) => {
                             </div>
                         </section>
                         detalle de {info.name}
-                    </div>
-                    : <div>
-                        loading...
+                    </div> :
+                    <div>
+                        loading...1,2,3
                     </div>
             }
         </div>

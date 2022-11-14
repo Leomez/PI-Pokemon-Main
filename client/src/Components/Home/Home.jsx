@@ -2,7 +2,7 @@ import React from "react";
 import './Home.css'
 import PokemonCard from "../PokemonCard/PokemonCard";
 import SearchBar from "../SearchBar/SearchBar";
-import { getAllPokemons, getTypes } from "../../Redux/actions";
+import { getAllPokemons } from "../../Redux/actions";
 import { Link } from "react-router-dom";
 
 import { useEffect, useState } from "react";
@@ -15,22 +15,24 @@ const Home = () => {
     const pokemons = useSelector((state) => state.pokemons)
 
     const [currentPage, setCurrentPage] = useState(1)  //los estados locales los puedo manejar con useState
-    const [elementXPage, setElementXPage] = useState(12)
+    const [elementXPage] = useState(12)
     const indexOfLastElement = currentPage * elementXPage;
     const indexOfFirstElement = indexOfLastElement - elementXPage;
-    let currentElements = pokemons.slice(indexOfFirstElement, indexOfLastElement);    
+    let currentElements = pokemons.slice(indexOfFirstElement, indexOfLastElement); 
+    
+    
 
     const paginated = (pageNumber) => {
         setCurrentPage(pageNumber)
     }
 
-    useEffect(() => dispatch(getAllPokemons()), [])    
+    useEffect(() => dispatch(getAllPokemons()), [dispatch])    
 
     return (
         <div>
             <div className="banner">
                 <div >
-                    <img className="bannerImg" src="../../Img/pokemon.png" alt="" />
+                    <img className="bannerImg" src="../../Img/pokemon.png" alt="Pokemon" />
                 </div>
                 <div className="searchBar">
                     <SearchBar />
@@ -53,9 +55,8 @@ const Home = () => {
                     currentElements && currentElements.map(p => {
                         return (
                             // console.log(p),
-                            <Link to={`/pokemon/${p.id}`}>
-                                <PokemonCard
-                                    key={p.id}
+                            <Link key={p.id} to={`/pokemon/${p.id}`}>
+                                <PokemonCard                                    
                                     img={p.img}
                                     name={p.name}
                                     types={p.types}
