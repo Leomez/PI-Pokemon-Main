@@ -17,7 +17,7 @@ img{
 .buttons{
     display: flex;
     position: relative;    
-    align-items: end;
+    align-items: flex-end;
     justify-content: space-between;
     width: 11rem;
 }

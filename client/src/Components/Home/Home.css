@@ -1,10 +1,11 @@
 .banner{
+    display: flex;
+    flex-direction: column;
+    
     height: 20rem;
     align-items: center;
     align-content: center;
-    /* background-image: url('https://www.ecuavisa.com/binrepository/640x360/0c0/0d0/none/11705/TSII/pokemon_EC122800_MG263403.jpg'); */
-    /* background-size: contain; */
-    /* background-repeat: no-repeat; */
+    
 
 }
 
@@ -13,20 +14,30 @@
     padding-top: 3rem;
 }
 
-.results{
-    /* display: grid;
-    grid-template-columns: repeat(auto-fit, 250px);
-    grid-auto-rows: 300px;
-    grid-gap: 1rem;
-    justify-content: center; */
-    padding: 3rem;
-    
+.results{   
+    padding: 3rem;    
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content:space-around;
     gap: 3rem 0;
 }
+
+.results a{
+    text-decoration: none;
+}
+
+.SearchBar{
+    display: flex;
+    justify-content: center;
+}
+
+.filters{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
 
 
 

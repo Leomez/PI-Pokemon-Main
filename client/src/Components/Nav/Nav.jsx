@@ -13,7 +13,7 @@ const Nav = () => {
                     <Link to={'/pokemon'}>
                         Home
                     </Link>
-                    <Link to={'pokemon/create'}>
+                    <Link to={'/create'}>
                         Create
                     </Link>
 
