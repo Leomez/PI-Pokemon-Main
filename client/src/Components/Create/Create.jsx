@@ -37,11 +37,10 @@ const Create = () => {
         )
     }
 
-
     const handleType = (e) => {
         setInput({
             ...input,
-            types : [...input.types, e.target.value]
+            types: [...input.types, e.target.value]
         })
     }
 
@@ -79,24 +78,31 @@ const Create = () => {
 
 
     return (
-        <div>
+        <div className="create-container">
             <h1>Create your own Pokemon!</h1>
-            <form onSubmit={e => handleSubmit(e)}>
-                <label>Name: </label>
-                <input
-                    type="text"
-                    value={input.name}
-                    name="name"
-                    onChange={e => handleChange(e)}
-                />
+            <form className="form-content" onSubmit={e => handleSubmit(e)}>
+                <div className="head">
+                    <div className="name">
+                        <label>Name: </label>
+                        <input
+                            type="text"
+                            value={input.name}
+                            name="name"
+                            onChange={e => handleChange(e)}
+                        />
+                    </div>
 
-                <label>Image: </label>
-                <input
-                    type="text"
-                    value={input.img}
-                    name="img"
-                    onChange={e => handleChange(e)}
-                />
+                    <div className="image">
+                        <label>Image: </label>
+                        <input
+                            type="text"
+                            value={input.img}
+                            name="img"
+                            onChange={e => handleChange(e)}
+                        />
+                    </div>
+
+                </div>
 
                 <div className="features">
 
@@ -186,39 +192,28 @@ const Create = () => {
                 </div>
 
                 <div className="typeSelect">
-                <label>Type: </label>
-                <select onChange={e => handleType(e)} >
-                    <option value=""></option>
-                    {
-                        types?.map(t => {
-                            return (
-                                <option key={t.id} value={`${t.name}`}>{`${t.name}`}</option>
-                            )
-                        })
-                    }
-                </select>
-                <ul>{input.types.map(t => {
-                    return(
-                       
-                        <div>
-                            <li key={t}> {t}  <button>x</button></li>
-                            
-                        </div>
-                    )
-                })}</ul>
+                    <label>Type: </label>
+                    <select onChange={e => handleType(e)} >
+                        <option value=""></option>
+                        {
+                            types?.map(t => {
+                                return (
+                                    <option key={t.id} value={`${t.name}`}>{`${t.name}`}</option>
+                                )
+                            })
+                        }
+                    </select>
+                    <ul>{input.types.map(t => {
+                        return (
+                            <div>
+                                <li key={t}> {t}  <button>x</button></li>
+                            </div>
+                        )
+                    })}</ul>
 
                 </div>
-
-                {/* <input
-                    max={100}
-                    type="range"
-                    value={input.hp}
-                    name="hp"
-                // style={bgrSize()}
-                // onChange={e}
-                /> */}
-
                 <button type="submit" >Create</button>
+
             </form>
         </div>
     )

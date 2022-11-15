@@ -14,12 +14,11 @@ function App() {
         <Route exact path="/">
           <Landing />
         </Route>
+        
+        <Route path={'/'}>
+          <Nav />
+        </Route>
       </Switch>
-
-      <Route path={'/pokemon'}>
-        <Nav />
-      </Route>
-
 
       <Route exact path="/pokemon">
         <Home />

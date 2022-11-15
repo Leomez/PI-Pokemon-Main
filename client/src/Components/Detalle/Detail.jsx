@@ -28,35 +28,43 @@ const Detail = (props) => {
                         <div className="card_info">
                             <div className="head">
                                 <p className="title">{info.name}</p>
+                                <p>ID: {info.id}</p>
+                                <hr />
                                 <div className="description">
                                     <div className="item">
+                                        <i class="weight-icon"><img src="../../Img/weight.png" alt="weight" /></i>
                                         <p>Weight: {info.weight}</p>
                                     </div>
                                     <div className="item">
+                                        <i class="ruler-icon"><img src="../../Img/height.png" alt="height" /></i>
                                         <p>Height: {info.height}</p>
                                     </div>
                                 </div>
+                                <hr />
                             </div>
 
                             <div className="content">
-                                <p>Estadisticas</p>
-                                <ul className="list">
-                                    <li>Health: {info.hp}</li>
-                                    <li>Attack: {info.attack}</li>
-                                    <li>Defense: {info.defense}</li>
-                                    <li>Speed: {info.speed}</li>
-                                </ul>
-                                <hr />
-                                <p>Tipos</p>
-                                <ul>
-                                    {info.types.map(t => {
-                                        return (
-                                            <li className="text" key={t} >{`${t} `}</li>
-                                        )
-                                    })}
-                                </ul>
-                                <hr />
-                                <p>ID: {info.id}</p>
+                                <div>
+                                    <p>Estadisticas</p>
+                                    <ul className="list">
+                                        <li>Health: {info.hp}</li>
+                                        <li>Attack: {info.attack}</li>
+                                        <li>Defense: {info.defense}</li>
+                                        <li>Speed: {info.speed}</li>
+                                    </ul>
+                                </div>
+                                <hr className="divider" />
+                                <div>
+                                    <p>Tipos</p>
+                                    <ul className="list">
+                                        {info.types.map(t => {
+                                            return (
+                                                <li className="text" key={t} >{`${t} `}</li>
+                                            )
+                                        })}
+                                    </ul>
+                                </div>
+
                             </div>
                         </div>
                     </div> :

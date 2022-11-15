@@ -1,25 +1,65 @@
-
-
-
-
-.features{
-    display:flex;
+.create-container {
+    width: auto;
+    display: flex;
+    justify-content: center;
     flex-direction: column;
-    justify-content: center;    
-    margin: auto;
-    padding: 10px;
-    width: 50vw;
+    align-content: center;
+    padding: 5rem;
 }
 
-.features div{
+.form-content {
+    
+    padding-top: 4rem;
+    padding: 2rem;
+    /* border: solid 1px #000; */
+    border-radius: 20px;    
+    box-shadow: 2px 2px 38px 0px rgba(0,0,0,0.87) inset;
+    -webkit-box-shadow: 2px 2px 38px 0px rgba(0,0,0,0.87) inset;
+    -moz-box-shadow: 2px 2px 38px 0px rgba(0,0,0,0.87) inset;
+}
+
+.form-content .head{
+    display: flex;
+    justify-content: space-around;
+    margin: 25px;
+}
+
+.head .name, .head .image{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.head .name label, .head .image label{
+    padding-right: 10px;
+}
+
+
+.features {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    padding: 10px;
+    width: 30vw;
+}
+
+.features label{
+    margin-top: 10px;
+}
+
+.features div {
     display: flex;
     margin: 0;
 }
 
-.typeSelect{
+.features div input{
+    width: 500px;
+}
+
+.typeSelect {
     padding: 3rem;
 }
 
-.typeSelect ul{
-    list-style-type:none;
+.typeSelect ul {
+    list-style-type: none;
 }

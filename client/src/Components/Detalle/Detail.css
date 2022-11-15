@@ -63,33 +63,60 @@
 }
 
 .card_info .head .title {
-    font-size: 20px;
+    font-size: 25px;
     font-weight: 700;
     color: #5b11bc;
+}
+
+.card_info .head p{
+    margin: 10px;
 }
 
 
 .card_info .head .description {
     display: flex;
+    justify-content: center;    
     gap: 10px;
 }
 
 .card_info .head .description .item {
     display: flex;
     gap: 5px;
-    align-items: center;
+    align-items: center;    
 }
 
 
 .card_info .head .description .item p {
-    font-size: 13px;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.item i img{
+    width: 20px;    
+}
+
+.divider{
+    margin: 30px;
 }
 
 .card_info .content {
+    display: flex;
+    justify-content: center;
+    height: auto;
     margin-top: 15px;
 }
 
+.card_info .content div{
+    align-content: center;
+}
+
+.card_info .content div p{
+    font-size: 15px;
+    font-weight: 500;
+}
+
 .card_info .content .list {
+    margin-top: 10px;
     padding: 10px 15px;
 }
 
