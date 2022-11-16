@@ -1,5 +1,5 @@
 import React from "react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { filterByCreate, filterByType, getTypes, orderByAttack, orderByName } from "../../Redux/actions";
 import './Filters.css'
@@ -9,7 +9,9 @@ const Filter = (props) => {
     const types = useSelector((state) => state.types)
     const dispatch = useDispatch()
     useEffect(() => dispatch(getTypes()),[dispatch])
+    
 
+    const [order, setOrder] = useState("")
 
     function handleFilterByTypes(e) {
         props.setCurrentPage(1)
@@ -22,11 +24,15 @@ const Filter = (props) => {
     }
 
     function handleOrderByName(e) {
-        // props.setCurrentPage(1)
-        dispatch(orderByName(e.target.value))
+        e.preventDefault();
+        props.setCurrentPage(1);
+        
+        dispatch(orderByName(e.target.value));
+        setOrder(`ordered by ${e.target.value}`)
     }
 
     function handleOrderByAttack(e) {
+        props.setCurrentPage(1)
         dispatch(orderByAttack(e.target.value))
     }
 
@@ -46,14 +52,14 @@ const Filter = (props) => {
             <div className="orderBy">
                 <p>Order by: </p>
                 <span> <p>abc </p>
-                    <select onChange={(e) => handleOrderByName(e)}>
+                    <select onChange={e => handleOrderByName(e)}>
                         <option value="asc">A-Z</option>
                         <option value="desc">Z-A</option>
                     </select>
                 </span>
 
                 <span> <p>Attack </p> 
-                    <select onChange={(e) => handleOrderByAttack(e)}>
+                    <select onChange={e => handleOrderByAttack(e)}>
                         <option value="max">max</option>
                         <option value="min">min</option>
                     </select>

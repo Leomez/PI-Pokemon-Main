@@ -69,38 +69,9 @@ const Detail = (props) => {
                         </div>
                     </div> :
 
-                    // <div className="container">
-                    //     <section className="description">
-                    //         <img className="descImg" src={`${info.img}`} alt={`${info.name}`} />
-                    //         <div className="descInfo">
-                    //             <h1 className="name">{info.name}</h1>
-                    //             <h4>Tipos: </h4>
-                    //             {info.types.map(t => {
-                    //                 return (
-                    //                     <span className="text" key={t} >{`${t} `}</span>
-                    //                 )
-                    //             })}
-                    //             <h4>ID: </h4> <span className="text">{info.id}</span>
-                    //         </div>
-                    //     </section>
-
-                    //     <section className="statistics">
-                    //         <h1>Estadísticas</h1>
-                    //         <div className="statisticsBox">
-                    //             <div className="chart" >Helth: {info.hp}</div>
-                    //             <div className="chart" >Attack: {info.attack}</div>
-                    //             <div className="chart" >Defense: {info.defense}</div>
-                    //             <div className="chart" >Speed: {info.speed}</div>
-                    //         </div>
-                    //         <div>
-                    //             <h3>Weight: </h3> <span className="text">{info.weight}</span>
-                    //             <h3>Height: </h3> <span className="text">{info.height}</span>
-                    //         </div>
-                    //     </section>
-
-                    // </div> :
+                    
                     <div>
-                        loading...1,2,3
+                        <div><img src="../../Img/Spin-1s-200px.svg" alt="loading..."/></div>
                     </div>
             }
         </div>

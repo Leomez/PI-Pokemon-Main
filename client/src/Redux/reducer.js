@@ -65,7 +65,7 @@ export default function reducer(state = initialState, action) {
         case FILTER_BY_TYPE: {
             const allPokemons = state.allPokemons;
             const leakedPokemons = action.payload === 'All'? allPokemons : allPokemons.filter(p => p.types.includes(action.payload))
-            console.log(action.payload);
+            // console.log(action.payload);
             return {
                 ...state,
                 pokemons: leakedPokemons
@@ -75,7 +75,7 @@ export default function reducer(state = initialState, action) {
         case FILTER_BY_CREATE: {
             const allPokemons = state.allPokemons;
             const leakedPokemons = action.payload === 'All'? allPokemons : allPokemons.filter(p => typeof(p.id) === action.payload)
-            console.log(action.payload);
+            // console.log(action.payload);
             return {
                 ...state,
                 pokemons: leakedPokemons
@@ -84,16 +84,16 @@ export default function reducer(state = initialState, action) {
 
         case ORDER_BY_NAME: {
             let sorted = action.payload === 'asc' ?
-            state.allPokemons.sort((a,b) => {
+            state.pokemons.sort((a,b) => {
                 if(a.name > b.name) return 1;
                 if(a.name < b.name) return -1;
                 return 0;
-            }) : state.allPokemons.sort((a,b)=> {
+            }) : state.pokemons.sort((a,b)=> {
                 if(a.name > b.name) return -1;
                 if(a.name < b.name) return 1;
                 return 0;
             })
-            console.log(sorted);
+            // console.log(sorted);
             return {
                 ...state,
                 pokemons: sorted
@@ -102,14 +102,14 @@ export default function reducer(state = initialState, action) {
 
         case ORDER_BY_ATTACK: {
             let sorted = action.payload === 'min' ?
-            state.allPokemons.sort((a,b) => {
-                if(a.attack > b.attack) return 1;
-                if(a.attack < b.attack) return -1;
-                return 0;
-            }) : state.allPokemons.sort((a,b) => {
-                if(a.attack > b.attack) return -1;
-                if(a.attack > b.attack) return 1;
-                return 0
+            state.pokemons.sort((a,b) => {
+                // if(a.attack > b.attack) return 1;
+                // if(a.attack < b.attack) return -1;
+                return a.attack - b.attack;
+            }) : state.pokemons.sort((a,b) => {
+                // if(a.attack > b.attack) return -1;
+                // if(a.attack > b.attack) return 1;
+                return b.attack - a.attack
             })
             return {
                 ...state,

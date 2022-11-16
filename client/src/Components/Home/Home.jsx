@@ -20,7 +20,7 @@ const Home = () => {
     const indexOfFirstElement = indexOfLastElement - elementXPage;
     let currentElements = pokemons.slice(indexOfFirstElement, indexOfLastElement); 
     
-    
+    console.log(pokemons);
 
     const paginated = (pageNumber) => {
         setCurrentPage(pageNumber)
@@ -52,7 +52,7 @@ const Home = () => {
 
             <div className="results">
                 {
-                    currentElements && currentElements.map(p => {
+                    currentElements ? currentElements.map(p => {
                         return (
                             // console.log(p),
                             <Link key={p.id} to={`/pokemon/${p.id}`}>
@@ -63,7 +63,8 @@ const Home = () => {
                                 />
                             </Link>
                         )
-                    })
+                    }) :
+                    <div><img src="../../Img/Spin-1s-200px.svg" alt="loading..."/></div>
                 }
             </div>
         </div>
