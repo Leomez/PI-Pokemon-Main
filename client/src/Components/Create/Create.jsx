@@ -61,20 +61,7 @@ const Create = () => {
             types: []
         })
         history.push('/home')
-    }
-
-    // const handleClose = (e) => {
-    //     e.preventDefaul();
-    //     setInput({
-    //         ...input,
-    //         types: input.types.filter(t => t != e.target.value)
-    //     })
-    // }
-
-
-    // const bgrSize = () => {
-    //     return { backgroundSize: `${(value * 100) / 10}% 100%` }
-    // };
+    }  
 
 
     return (

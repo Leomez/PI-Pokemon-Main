@@ -11,29 +11,32 @@ const Filter = (props) => {
     useEffect(() => dispatch(getTypes()),[dispatch])
     
 
-    const [order, setOrder] = useState("")
+    
 
     function handleFilterByTypes(e) {
-        props.setCurrentPage(1)
+        e.preventDefault();
+        props.setCurrentPage(1);
         dispatch(filterByType(e.target.value))
     }
 
     function handleFilterByCreates(e) {
-        props.setCurrentPage(1)
+        e.preventDefault();
+        props.setCurrentPage(1);
         dispatch(filterByCreate(e.target.value))
     }
 
     function handleOrderByName(e) {
         e.preventDefault();
+        dispatch(orderByName(e.target.value))
         props.setCurrentPage(1);
-        
-        dispatch(orderByName(e.target.value));
-        setOrder(`ordered by ${e.target.value}`)
+        props.setOrder(`ordered by ${e.target.value}`)        
     }
 
     function handleOrderByAttack(e) {
-        props.setCurrentPage(1)
+        e.preventDefault()
         dispatch(orderByAttack(e.target.value))
+        props.setCurrentPage(1)
+        props.setOrder(`ordered by ${e.target.value}`)
     }
 
     const handleClean = (e) => {

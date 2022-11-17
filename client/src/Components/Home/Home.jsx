@@ -16,6 +16,7 @@ const Home = () => {
 
     const [currentPage, setCurrentPage] = useState(1)  //los estados locales los puedo manejar con useState
     const [elementXPage] = useState(12)
+    const [order, setOrder] = useState('');
     const indexOfLastElement = currentPage * elementXPage;
     const indexOfFirstElement = indexOfLastElement - elementXPage;
     let currentElements = pokemons.slice(indexOfFirstElement, indexOfLastElement); 
@@ -41,7 +42,7 @@ const Home = () => {
             <hr></hr>
 
             <div className="filters">
-                <Filters setCurrentPage = {setCurrentPage}/>                   
+                <Filters setCurrentPage = {setCurrentPage} setOrder ={setOrder}/>                   
             </div>
             
             <Paginado
