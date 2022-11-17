@@ -12,7 +12,9 @@ const PokemonCard = (props) => {
                 </h2>
                 <h3>Types: {props.types.map(t => {
                     return (
-                    <span className="types" key={t} >{`${t} `}</span>
+                        typeof(props.id) === 'string'?<span className="types" key={Object.values(t)}>{`${Object.values(t)} `}</span>:
+                        <span className="types" key={t} >{`${t} `}</span>  
+                    // <span className="types" key={t} >{`${t} `}</span>
                     )
                 })}
                 </h3>

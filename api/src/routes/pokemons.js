@@ -41,7 +41,7 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', async (req,res) => {
     //si puedo refactorizo...
-    let { type } = req.body
+    let { types }  = req.body
 
     let pokemonCreated = await Pokemon.create ({
         name : req.body.name,
@@ -55,12 +55,12 @@ router.post('/', async (req,res) => {
     })
 
     let typeDb = await Type.findAll({
-        where: {name: type}
-    })
+        where: {name: types}
+    })    
 
     pokemonCreated.addType(typeDb)
     console.log(pokemonCreated);
     res.send('¡Pokemon creado con exito!')
-    })
+    })    
 
 module.exports = router;

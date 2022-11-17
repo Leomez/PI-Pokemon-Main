@@ -57,7 +57,8 @@ const Home = () => {
                         return (
                             // console.log(p),
                             <Link key={p.id} to={`/pokemon/${p.id}`}>
-                                <PokemonCard                                    
+                                <PokemonCard 
+                                    id = {p.id}                                   
                                     img={p.img}
                                     name={p.name}
                                     types={p.types}

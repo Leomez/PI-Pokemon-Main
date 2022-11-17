@@ -41,22 +41,24 @@ const getPokemonsApi = async () => {
 }
 
 const getPokemonsDb = async () => {
-    try {
+    // try {
         return await Pokemon.findAll({
-            // attributes: ['img', 'name', 'id', 'types', 'height', 'stats', 'weight'],
+            attributes: ['id', 'name', 'img', 'hp', 'attack', 'defense', 'speed', 'weight', 'height'],
             include: {
                 model: Type,
-                attributes: ['name'].map(n => n),
+                attributes: ['name'],
+                // attributes: ['name'].map(n => n),
                 through: {
                     attributes: [],
                 }
             }
         })
-    } catch (error) {
-        console.log(' db error ==> ' + error);
-    }
+    // } catch (error) {
+    //     console.log(' db error ==> ' + error);
+    // }
 
 }
+
 
 const getAllPokemons = async () => {
     try {
@@ -64,13 +66,15 @@ const getAllPokemons = async () => {
         const dbPoke = await getPokemonsDb();
         const allPoke = apiPoke.concat(dbPoke)
 
+        console.log(dbPoke);
+
         return allPoke
     } catch (error) {
         console.log(error);
     }
 }
 
-
+// getAllPokemons()
 
 module.exports = { getAllPokemons }
 

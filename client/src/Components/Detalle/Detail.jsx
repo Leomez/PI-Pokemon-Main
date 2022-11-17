@@ -57,11 +57,18 @@ const Detail = (props) => {
                                 <div>
                                     <p>Tipos</p>
                                     <ul className="list">
-                                        {info.types.map(t => {
-                                            return (
-                                                <li className="text" key={t} >{`${t} `}</li>
-                                            )
-                                        })}
+                                        {
+                                            typeof(info.id) === 'string'?info.types.map(t => {
+                                                return (
+                                                    <li className="text" key={t} >{`${Object.values(t)} `}</li>
+                                                )
+                                            }):info.types.map(t => {
+                                                return (
+                                                    <li className="text" key={t} >{`${t} `}</li>
+                                                )
+                                            })
+                                        }
+                                        
                                     </ul>
                                 </div>
 

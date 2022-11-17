@@ -193,7 +193,7 @@ const Create = () => {
                     <ul>{input.types.map(t => {
                         return (
                             <div>
-                                <li key={t}> {t}  <button>x</button></li>
+                                <li key={t}> {t} </li>
                             </div>
                         )
                     })}</ul>
