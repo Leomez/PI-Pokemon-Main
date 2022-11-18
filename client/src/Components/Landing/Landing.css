@@ -1,7 +1,7 @@
-@font-face {
+/* @font-face {
     font-family: PokemonHollow ;
     src: url('../../font/PokemonHollow.ttf');
-}
+} */
 
 .container{
     display: flex;
@@ -11,14 +11,26 @@
     width: 20rem;
     display: flex;
     position: relative;
-    right: 50px;
+    left: 56em;
     top: 70px;
+    transition: all .5s
+    
 }
 
 .landing{
-    background-image: url('./fondo-landing.png');
+    background-image: url('../../assets/img/fondo-landing.png');
     background-size: contain;
     background-repeat: no-repeat;
     width: 960px;
     height: 600px;
+    position: absolute;
+}
+
+.button:hover{
+    width: 23rem;
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg); 
+    -moz-transform: rotate(360deg);
+    
 }

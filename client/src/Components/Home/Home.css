@@ -1,12 +1,27 @@
 .banner{
     display: flex;
-    flex-direction: column;
+    flex-direction: column; 
+    position: relative;     
     
     height: 20rem;
     align-items: center;
     align-content: center;
-    
+    z-index: 5; 
+    /* opacity: .5;      */
 
+}
+
+.banner::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: -1;
+    opacity: .5;
+    background: url('../../assets/img/cardBackgroud.webp');
+    background-size:contain;
 }
 
 .bannerImg{
@@ -30,6 +45,7 @@
 .SearchBar{
     display: flex;
     justify-content: center;
+    position: relative;
 }
 
 .filters{

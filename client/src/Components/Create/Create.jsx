@@ -103,9 +103,8 @@ export default function Create() {
                                 onBlur={handleBlur}
                                 className="textarea"
                             />
-                            {error.img && <p className="errorMsj">{error.img}</p>}
                         </div>
-
+                            {error.img && <p className="errorMsj">{error.img}</p>}
                     </div>
 
 
