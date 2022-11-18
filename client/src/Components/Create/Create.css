@@ -21,7 +21,7 @@
 .form-content .head{
     display: flex;
     justify-content: space-around;
-    margin: 25px;
+    padding: 25px;
 }
 
 .head .name, .head .image{
@@ -62,4 +62,9 @@
 
 .typeSelect ul {
     list-style-type: none;
+}
+
+.errorMsj{
+    margin: 0;
+    padding: 0;
 }

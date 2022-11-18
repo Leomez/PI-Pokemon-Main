@@ -5,13 +5,13 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addPokemon, getTypes } from "../../Redux/actions";
 import { useHistory } from "react-router-dom";
+import Validate from "../Validate/Validate";
 
 
 
-const Create = () => {
+export default function Create() {
     const dispatch = useDispatch();
     const types = useSelector((state) => state.types);
-    // const [value, setValue] = useState(0);
     const history = useHistory();
 
     const [input, setInput] = useState({
@@ -26,15 +26,22 @@ const Create = () => {
         types: []
     })
 
+    const [error, setError] = useState({})
+
     useEffect(() => dispatch(getTypes()), [dispatch])
 
     const handleChange = (e) => {
         setInput(
             {
                 ...input,
-                [e.target.name]: e.target.value
+                [e.target.name]: e.target.value.toLowerCase()
             }
         )
+    }
+
+    const handleBlur = (e) => {
+        handleChange(e)
+        setError(Validate(input))
     }
 
     const handleType = (e) => {
@@ -42,6 +49,7 @@ const Create = () => {
             ...input,
             types: [...input.types, e.target.value]
         })
+        setError(Validate(input))
     }
 
     const handleSubmit = (e) => {
@@ -60,8 +68,8 @@ const Create = () => {
             height: 0,
             types: []
         })
-        history.push('/home')
-    }  
+        history.push('/pokemons')
+    }
 
 
     return (
@@ -69,25 +77,37 @@ const Create = () => {
             <h1>Create your own Pokemon!</h1>
             <form className="form-content" onSubmit={e => handleSubmit(e)}>
                 <div className="head">
-                    <div className="name">
-                        <label>Name: </label>
-                        <input
-                            type="text"
-                            value={input.name}
-                            name="name"
-                            onChange={e => handleChange(e)}
-                        />
+                    <div>
+                        <div className="name">
+                            <label>Name: </label>
+                            <input
+                                type="text"
+                                value={input.name}
+                                name="name"
+                                onChange={e => handleChange(e)}
+                                onBlur={handleBlur}
+                                className="textarea"
+                            />
+                        </div>
+                        {error.name && <p className="errorMsj">{error.name}</p>}
                     </div>
 
-                    <div className="image">
-                        <label>Image: </label>
-                        <input
-                            type="text"
-                            value={input.img}
-                            name="img"
-                            onChange={e => handleChange(e)}
-                        />
+                    <div>
+                        <div className="image">
+                            <label>Image: </label>
+                            <input
+                                type="text"
+                                value={input.img}
+                                name="img"
+                                onChange={e => handleChange(e)}
+                                onBlur={handleBlur}
+                                className="textarea"
+                            />
+                            {error.img && <p className="errorMsj">{error.img}</p>}
+                        </div>
+
                     </div>
+
 
                 </div>
 
@@ -101,8 +121,6 @@ const Create = () => {
                             value={input.hp}
                             name="hp"
                             onChange={e => handleChange(e)}
-                        // style={bgrSize()}
-                        // onChange={e}
                         />
                         {input.hp}
                     </div>
@@ -115,8 +133,6 @@ const Create = () => {
                             value={input.attack}
                             name="attack"
                             onChange={e => handleChange(e)}
-                        // style={bgrSize()}
-                        // onChange={e}
                         />
                         {input.attack}
                     </div>
@@ -129,8 +145,6 @@ const Create = () => {
                             value={input.defense}
                             name="defense"
                             onChange={e => handleChange(e)}
-                        // style={bgrSize()}
-                        // onChange={e}
                         />
                         {input.defense}
                     </div>
@@ -143,8 +157,6 @@ const Create = () => {
                             value={input.speed}
                             name="speed"
                             onChange={e => handleChange(e)}
-                        // style={bgrSize()}
-                        // onChange={e}
                         />
                         {input.speed}
                     </div>
@@ -157,8 +169,6 @@ const Create = () => {
                             value={input.weight}
                             name="weight"
                             onChange={e => handleChange(e)}
-                        // style={bgrSize()}
-                        // onChange={e}
                         />
                         {input.weight}
                     </div>
@@ -171,8 +181,6 @@ const Create = () => {
                             value={input.height}
                             name="height"
                             onChange={handleChange}
-                        // style={bgrSize()}
-                        // onChange={e}
                         />
                         {input.height}
                     </div>
@@ -185,21 +193,24 @@ const Create = () => {
                         {
                             types?.map(t => {
                                 return (
-                                    <option key={t.id} value={`${t.name}`}>{`${t.name}`}</option>
+                                    <option key={t.id} value={`${t.name}`}>
+                                        {`${t.name}`}
+                                    </option>
                                 )
                             })
                         }
                     </select>
-                    <ul>{input.types.map(t => {
+                    <ul>{input.types ? input.types.map(t => {
                         return (
                             <div>
                                 <li key={t}> {t} </li>
                             </div>
                         )
-                    })}</ul>
+                    }) : <p className="errorMsj">{error.types}</p>
+                    }</ul>
 
                 </div>
-                <button type="submit" >Create</button>
+                <button type="submit" disabled={!input.name || Object.keys(error).length > 0} >Create</button>
 
             </form>
         </div>
@@ -207,4 +218,4 @@ const Create = () => {
 }
 
 
-export default Create
+// export default Create
