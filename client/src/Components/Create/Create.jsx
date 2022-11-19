@@ -47,9 +47,15 @@ export default function Create() {
     const handleType = (e) => {
         setInput({
             ...input,
-            types: [...input.types, e.target.value]
+            types: [...input.types, e.target.value],
         })
-        setError(Validate(input))
+    }
+
+    const handleDelete = (type) => {
+        setInput({
+            ...input,
+            types: input.types.filter(t => t !== type)
+        })
     }
 
     const handleSubmit = (e) => {
@@ -68,7 +74,7 @@ export default function Create() {
             height: 0,
             types: []
         })
-        history.push('/pokemons')
+        history.push('/pokemon')
     }
 
 
@@ -104,7 +110,7 @@ export default function Create() {
                                 className="textarea"
                             />
                         </div>
-                            {error.img && <p className="errorMsj">{error.img}</p>}
+                        {error.img && <p className="errorMsj">{error.img}</p>}
                     </div>
 
 
@@ -188,7 +194,7 @@ export default function Create() {
                 <div className="typeSelect">
                     <label>Type: </label>
                     <select onChange={e => handleType(e)} >
-                        <option value=""></option>
+                        <option value={null}></option>
                         {
                             types?.map(t => {
                                 return (
@@ -199,14 +205,15 @@ export default function Create() {
                             })
                         }
                     </select>
-                    <ul>{input.types ? input.types.map(t => {
-                        return (
-                            <div>
-                                <li key={t}> {t} </li>
-                            </div>
-                        )
-                    }) : <p className="errorMsj">{error.types}</p>
-                    }</ul>
+                    <ul>
+                        {input.types && input.types.map(t => {
+                            return (
+                                <div>
+                                    <li key={t}> {t} <button onClick={() => handleDelete(t)} >x</button> </li>
+                                </div>
+                            )
+                        })}
+                    </ul>
 
                 </div>
                 <button type="submit" disabled={!input.name || Object.keys(error).length > 0} >Create</button>
@@ -215,6 +222,3 @@ export default function Create() {
         </div>
     )
 }
-
-
-// export default Create
