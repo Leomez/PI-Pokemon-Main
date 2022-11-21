@@ -8,7 +8,8 @@ import {
     ORDER_BY_NAME,
     ORDER_BY_ATTACK, 
     GET_POKEMON_BY_NAME,
-    ADD_POKEMON
+    ADD_POKEMON,
+    CLEAR_DETAILS
 } from './actionType'
 // import GET_POKEMON_BY_NAME from './actionType'
 // import GET_POKEMON_BY_ID from './actionType'
@@ -38,6 +39,13 @@ export default function reducer(state = initialState, action) {
             return {
                 ...state,
                 pokemonDetails: action.payload
+            }
+        }
+
+        case CLEAR_DETAILS: {
+            return {
+                ...state,
+                pokemonDetails: []
             }
         }
 

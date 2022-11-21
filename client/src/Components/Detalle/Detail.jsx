@@ -2,19 +2,28 @@ import React from "react";
 import './Detail.css';
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from "react";
-import { getPokemonById } from "../../Redux/actions";
+import { clearDetails, getPokemonById } from "../../Redux/actions";
+import { useHistory } from "react-router-dom";
 
 const Detail = (props) => {
 
     const detail = useSelector(state => state.pokemonDetails);
     const dispatch = useDispatch()
-    useEffect(() => dispatch(getPokemonById(props.match.params.id)), [dispatch])
+    useEffect(() => dispatch(getPokemonById(props.match.params.id)), [props.match.params.id, dispatch])
+    const history = useHistory()
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        dispatch(clearDetails())
+        history.push('/pokemon')
+    }
 
     const info = detail[0]
 
     const bgrImg = () => {
         return { backgroundImage: `url(${info.img})` }
     };
+
 
     return (
         <div className="mainContainer">
@@ -32,11 +41,11 @@ const Detail = (props) => {
                                 <hr />
                                 <div className="description">
                                     <div className="item">
-                                        <i class="weight-icon"><img src="../../Img/weight.png" alt="weight" /></i>
+                                        <i className="weight-icon"><img src="../../Img/weight.png" alt="weight" /></i>
                                         <p>Weight: {info.weight}</p>
                                     </div>
                                     <div className="item">
-                                        <i class="ruler-icon"><img src="../../Img/height.png" alt="height" /></i>
+                                        <i className="ruler-icon"><img src="../../Img/height.png" alt="height" /></i>
                                         <p>Height: {info.height}</p>
                                     </div>
                                 </div>
@@ -45,7 +54,7 @@ const Detail = (props) => {
 
                             <div className="content">
                                 <div>
-                                    <p>Estadisticas</p>
+                                    <p>Statistics</p>
                                     <ul className="list">
                                         <li>Health: {info.hp}</li>
                                         <li>Attack: {info.attack}</li>
@@ -55,30 +64,31 @@ const Detail = (props) => {
                                 </div>
                                 <hr className="divider" />
                                 <div>
-                                    <p>Tipos</p>
+                                    <p>Types</p>
                                     <ul className="list">
                                         {
-                                            typeof(info.id) === 'string'?info.types.map(t => {
+                                            typeof (info.id) === 'string' ? info.types.map(t => {
                                                 return (
                                                     <li className="text" key={t} >{`${Object.values(t)} `}</li>
                                                 )
-                                            }):info.types.map(t => {
+                                            }) : info.types.map(t => {
                                                 return (
                                                     <li className="text" key={t} >{`${t} `}</li>
                                                 )
                                             })
                                         }
-                                        
+
                                     </ul>
                                 </div>
 
-                            </div>
+                            </div>                                        
+                            <button onClick={handleSubmit} type="submit">Return</button>
                         </div>
                     </div> :
 
-                    
+
                     <div>
-                        <div><img src="../../Img/Spin-1s-200px.svg" alt="loading..."/></div>
+                        <div><img src="../../Img/Spin-1s-200px.svg" alt="loading..." /></div>
                     </div>
             }
         </div>

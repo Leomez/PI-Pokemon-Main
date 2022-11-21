@@ -3,21 +3,30 @@
     src: url('../../font/PokemonHollow.ttf');
 } */
 
-.container{
+.containerLanding{
     display: flex;
+    overflow: hidden;
+    position: relative;
+    height: 46em;
+    justify-content:space-between;
+    
+
 }
 
 .button{
     width: 20rem;
     display: flex;
     position: relative;
-    left: 56em;
-    top: 70px;
+    left: 65em;
+    /* right: 15em; */
+    top: 85px;
     transition: all .5s
     
 }
 
 .landing{
+    padding: 3em;
+    margin-top: 3em;
     background-image: url('../../assets/img/fondo-landing.png');
     background-size: contain;
     background-repeat: no-repeat;
@@ -33,3 +42,5 @@
     -o-transform: rotate(360deg); 
     -moz-transform: rotate(360deg);    
 }
+
+

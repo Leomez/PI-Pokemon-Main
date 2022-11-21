@@ -7,6 +7,7 @@
     align-items: center;
     align-content: center;
     z-index: 5; 
+    padding-top: 5em;
     /* opacity: .5;      */
 
 }
@@ -19,7 +20,7 @@
     right: 0;
     left: 0;
     z-index: -1;
-    opacity: .5;
+    opacity: .6;
     background: url('../../assets/img/cardBackgroud.webp');
     background-size:contain;
 }

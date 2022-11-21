@@ -66,7 +66,7 @@ const getAllPokemons = async () => {
         const dbPoke = await getPokemonsDb();
         const allPoke = apiPoke.concat(dbPoke)
 
-        console.log(dbPoke);
+        // console.log(dbPoke);
 
         return allPoke
     } catch (error) {

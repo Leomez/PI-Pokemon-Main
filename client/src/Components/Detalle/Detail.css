@@ -1,8 +1,10 @@
 .mainContainer{
     display: flex;
     justify-content: center;
+    padding-top: 7em;
     align-items: center;
     min-height: 85vh;
+
     /* background: #767e2c4d;
     margin: 50px 0px;
     border-radius: 5px; */

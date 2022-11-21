@@ -14,12 +14,12 @@ router.get('/', async (req, res) => {
             let pokemon = allPokemons.filter(el => el.name.toLowerCase().includes(name.toLowerCase()))
             pokemon.length?
             res.status(200).send(pokemon) :
-            res.status(404).send('pokemon no encontrado')
+            res.status(404).send( "pokemon no encontrado")
         } else {
             res.status(200).send(allPokemons)
         }   
     } catch (error) {
-        res.status(400).send(error)
+        res.status(404).send(error)
     }            
 })
 

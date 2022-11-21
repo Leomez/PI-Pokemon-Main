@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Paginado from "../Paginado/Paginado";
 import Filters from "../Filters/Filters";
+import ErrorCard from "../ErrorCard/ErrorCard";
 
 const Home = () => {
     const dispatch = useDispatch();
@@ -21,14 +22,16 @@ const Home = () => {
     const indexOfFirstElement = indexOfLastElement - elementXPage;
     let currentElements = pokemons.slice(indexOfFirstElement, indexOfLastElement); 
     
-    console.log(pokemons);
+    // console.log(pokemons);
+
+    // console.log(pokemons[0]);
 
     const paginated = (pageNumber) => {
         setCurrentPage(pageNumber)
     }
 
-    useEffect(() => dispatch(getAllPokemons()), [dispatch])    
-
+    useEffect(() => dispatch(getAllPokemons()),[])   
+     
     return (
         <div>
             <div className="banner">
@@ -39,7 +42,8 @@ const Home = () => {
                     <SearchBar />
                 </div>
             </div>
-            <hr></hr>
+            {/* <hr></hr> */}
+            <br />
 
             <div className="filters">
                 <Filters setCurrentPage = {setCurrentPage} setOrder ={setOrder}/>                   
@@ -53,7 +57,14 @@ const Home = () => {
 
             <div className="results">
                 {
+
                     currentElements ? currentElements.map(p => {
+                        // console.log(p);
+                        if (p === 'pokemon no encontrado') {
+                            return (
+                                <ErrorCard key={p}/>
+                            )
+                        }
                         return (
                             // console.log(p),
                             <Link key={p.id} to={`/pokemon/${p.id}`}>

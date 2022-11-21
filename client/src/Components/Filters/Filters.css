@@ -8,6 +8,7 @@
 
 .orderBy{
     padding: 5px;
+    background-color: #515151
 }
 
 .orderBy p{
@@ -20,3 +21,18 @@
     padding: 0 5px 0 10px;
 }
 
+.selectBy{
+    display: flex;
+    align-items: center;
+    padding: 7px;
+    padding-top: 10px;
+    background-color: #515151;
+}
+
+.selectBy select{
+    margin: 0 5px;
+}
+
+.clear{    
+    margin-right: 5em;
+}

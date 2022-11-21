@@ -6,13 +6,12 @@ import { Link } from 'react-router-dom'
 const Landing = () => {
     // const pokemons = useSelector(state => state.pokemons)
     return (
-        <div className='container'>
+        <div className='containerLanding'>
             <div className='landing'>
-            </div>
+            </div>            
             <Link to="/pokemon">
                 <img className='button' src="../../../Img/pokebola.png" alt="" />
             </Link>
-
         </div>
 
     )

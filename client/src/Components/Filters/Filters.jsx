@@ -8,10 +8,10 @@ import './Filters.css'
 const Filter = (props) => {
     const types = useSelector((state) => state.types)
     const dispatch = useDispatch()
-    useEffect(() => dispatch(getTypes()),[dispatch])
-    
+    useEffect(() => dispatch(getTypes()), [dispatch])
 
-    
+
+
 
     function handleFilterByTypes(e) {
         e.preventDefault();
@@ -29,7 +29,7 @@ const Filter = (props) => {
         e.preventDefault();
         dispatch(orderByName(e.target.value))
         props.setCurrentPage(1);
-        props.setOrder(`ordered by ${e.target.value}`)        
+        props.setOrder(`ordered by ${e.target.value}`)
     }
 
     function handleOrderByAttack(e) {
@@ -48,7 +48,7 @@ const Filter = (props) => {
     return (
         <nav className="container">
 
-            <button onClick={e => handleClean(e)}>
+            <button className="clear" onClick={e => handleClean(e)}>
                 Clean filters
             </button>
 
@@ -61,7 +61,7 @@ const Filter = (props) => {
                     </select>
                 </span>
 
-                <span> <p>Attack </p> 
+                <span> <p>Attack </p>
                     <select onChange={e => handleOrderByAttack(e)}>
                         <option value="max">max</option>
                         <option value="min">min</option>
@@ -69,22 +69,26 @@ const Filter = (props) => {
                 </span>
             </div>
 
-            <select onChange={e => handleFilterByCreates(e)}>
-                <option value="All">All</option>
-                <option value="Creates">Creates</option>
-                <option value="Existing">Existing</option>
-            </select>
+            <div className="selectBy">
+                <select onChange={e => handleFilterByCreates(e)}>
+                    <option value="All">All</option>
+                    <option value="Creates">Creates</option>
+                    <option value="Existing">Existing</option>
+                </select>
 
-            <select onChange={e => handleFilterByTypes(e)}>
-                <option value="All">All</option>
-                {
-                    types?.map(t => {
-                        return (
-                            <option key={t.id} value={`${t.name}`}>{`${t.name}`}</option>
-                        )
-                    })
-                }
-            </select>
+                <select onChange={e => handleFilterByTypes(e)}>
+                    <option value="All">All</option>
+                    {
+                        types?.map(t => {
+                            return (
+                                <option key={t.id} value={`${t.name}`}>{`${t.name}`}</option>
+                            )
+                        })
+                    }
+                </select>
+
+            </div>
+
         </nav>
     )
 }

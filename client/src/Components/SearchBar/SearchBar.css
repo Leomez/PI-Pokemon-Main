@@ -1,5 +1,16 @@
-.container{
+.searchBarContainer{
+    width: 20em;
     display: flex;
     padding: 1.5rem;
-    justify-content: center;
+    justify-content: space-between;
+}
+
+button{
+    padding: 5px;
+    border-radius: 3px;
+    border: none
+}
+
+button:hover{
+    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.40);    
 }

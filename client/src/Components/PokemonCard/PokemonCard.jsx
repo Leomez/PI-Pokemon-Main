@@ -4,8 +4,7 @@ import './PokemonCard.css'
 
 const PokemonCard = (props) => {
     return (
-        <div className="card">
-            {/* <div className="inner"> */}
+        <div className="card">            
                 <div><img className="img" src={props.img} alt={props.name} /></div>
                 <h2 className="title">
                     {props.name}

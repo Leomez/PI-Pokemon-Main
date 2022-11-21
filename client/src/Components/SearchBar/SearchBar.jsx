@@ -12,19 +12,21 @@ export default function SearchBar() {
     const handleInputChange = (e) => {
         e.preventDefault();
         setName(e.target.value);
-        console.log(name);
+        // console.log(name);
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(getPokemonByName(name))
-        console.log(name);
+        setName("")
+        // console.log(name);
     }
 
     return (
         <form>
-            <div className="container">
+            <div className="searchBarContainer">
                 <input 
+                    value={name}
                     type="text"
                     placeholder="Find a pokemon..."
                     onChange={e => handleInputChange(e)}
