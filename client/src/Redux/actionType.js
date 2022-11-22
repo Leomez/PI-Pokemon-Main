@@ -8,3 +8,4 @@ export const GET_TYPES = 'GET_TYPES';
 export const ORDER_BY_NAME = 'ORDER_BY_NAME'
 export const ORDER_BY_ATTACK = 'ORDER_BY_ATTACK'
 export const CLEAR_DETAILS = 'CLEAR_DETAILS'
+export const SEARCH_POKEMON_BY_ID = "SEARCH_POKEMON_BY_ID"

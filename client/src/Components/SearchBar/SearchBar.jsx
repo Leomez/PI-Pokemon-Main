@@ -7,18 +7,18 @@ import './SearchBar.css'
 
 export default function SearchBar() {
     const dispatch = useDispatch()    
-    const [name,setName] = useState("")
+    const [value,setValue] = useState("")
 
     const handleInputChange = (e) => {
         e.preventDefault();
-        setName(e.target.value);
+        setValue(e.target.value);
         // console.log(name);
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(getPokemonByName(name))
-        setName("")
+        dispatch(getPokemonByName(value))
+        setValue("")
         // console.log(name);
     }
 
@@ -26,7 +26,7 @@ export default function SearchBar() {
         <form>
             <div className="searchBarContainer">
                 <input 
-                    value={name}
+                    value={value}
                     type="text"
                     placeholder="Find a pokemon..."
                     onChange={e => handleInputChange(e)}

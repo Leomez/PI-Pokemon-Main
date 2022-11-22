@@ -35,13 +35,13 @@ const getPokemonsApi = async () => {
         return detalle
 
     } catch (error) {
-        console.log(' api error ==> ' + error);
+        return error
     }
 
 }
 
 const getPokemonsDb = async () => {
-    // try {
+    try {
         return await Pokemon.findAll({
             attributes: ['id', 'name', 'img', 'hp', 'attack', 'defense', 'speed', 'weight', 'height'],
             include: {
@@ -53,9 +53,9 @@ const getPokemonsDb = async () => {
                 }
             }
         })
-    // } catch (error) {
-    //     console.log(' db error ==> ' + error);
-    // }
+    } catch (error) {
+        return error;
+    }
 
 }
 
@@ -70,7 +70,7 @@ const getAllPokemons = async () => {
 
         return allPoke
     } catch (error) {
-        console.log(error);
+        return error;
     }
 }
 

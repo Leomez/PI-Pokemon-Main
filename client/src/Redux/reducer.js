@@ -9,7 +9,7 @@ import {
     ORDER_BY_ATTACK, 
     GET_POKEMON_BY_NAME,
     ADD_POKEMON,
-    CLEAR_DETAILS
+    CLEAR_DETAILS   
 } from './actionType'
 // import GET_POKEMON_BY_NAME from './actionType'
 // import GET_POKEMON_BY_ID from './actionType'

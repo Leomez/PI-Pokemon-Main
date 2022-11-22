@@ -1,5 +1,5 @@
 import React from "react";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { filterByCreate, filterByType, getTypes, orderByAttack, orderByName } from "../../Redux/actions";
 import './Filters.css'
@@ -42,7 +42,7 @@ const Filter = (props) => {
     const handleClean = (e) => {
         e.preventDefault()
         dispatch(filterByType("All"))
-        // dispatch(handleFilterByCreates("All"))        
+               
     }
 
     return (
