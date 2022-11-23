@@ -20,8 +20,8 @@ const Home = () => {
     const [order, setOrder] = useState('');
     const indexOfLastElement = currentPage * elementXPage;
     const indexOfFirstElement = indexOfLastElement - elementXPage;
-    let currentElements = pokemons.slice(indexOfFirstElement, indexOfLastElement); 
-    
+    let currentElements = pokemons.slice(indexOfFirstElement, indexOfLastElement);
+
     // console.log(pokemons);
 
     // console.log(pokemons[0]);
@@ -30,8 +30,8 @@ const Home = () => {
         setCurrentPage(pageNumber)
     }
 
-    useEffect(() => dispatch(getAllPokemons()),[])   
-     
+    useEffect(() => dispatch(getAllPokemons()), [])
+
     return (
         <div>
             <div className="banner">
@@ -43,42 +43,43 @@ const Home = () => {
                 </div>
             </div>
             {/* <hr></hr> */}
-            <br />
+            {/* <br /> */}
+            <div className="resultContainer">
+                <div className="filters">
+                    <Filters setCurrentPage={setCurrentPage} setOrder={setOrder} />
+                </div>
 
-            <div className="filters">
-                <Filters setCurrentPage = {setCurrentPage} setOrder ={setOrder}/>                   
-            </div>
-            
-            <Paginado
-                elementXPage={elementXPage}
-                pokemons={pokemons}
-                paginated={paginated}
-            />
+                <Paginado
+                    elementXPage={elementXPage}
+                    pokemons={pokemons}
+                    paginated={paginated}
+                />
 
-            <div className="results">
-                {
+                <div className="results">
+                    {
 
-                    currentElements ? currentElements.map(p => {
-                        // console.log(p);
-                        if (p === 'pokemon no encontrado') {
+                        currentElements ? currentElements.map(p => {
+                            // console.log(p);
+                            if (p === 'pokemon no encontrado') {
+                                return (
+                                    <ErrorCard key={p} />
+                                )
+                            }
                             return (
-                                <ErrorCard key={p}/>
+                                // console.log(p),
+                                <Link key={p.id} to={`/pokemon/${p.id}`}>
+                                    <PokemonCard
+                                        id={p.id}
+                                        img={p.img}
+                                        name={p.name}
+                                        types={p.types}
+                                    />
+                                </Link>
                             )
-                        }
-                        return (
-                            // console.log(p),
-                            <Link key={p.id} to={`/pokemon/${p.id}`}>
-                                <PokemonCard 
-                                    id = {p.id}                                   
-                                    img={p.img}
-                                    name={p.name}
-                                    types={p.types}
-                                />
-                            </Link>
-                        )
-                    }) :
-                    <div><img src="../../Img/Spin-1s-200px.svg" alt="loading..."/></div>
-                }
+                        }) :
+                            <div><img src="../../Img/Spin-1s-200px.svg" alt="loading..." /></div>
+                    }
+                </div>
             </div>
         </div>
     )

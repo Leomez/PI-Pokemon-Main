@@ -8,7 +8,7 @@ export default function ErrorCard (){
         <div className="errorCard">
             <h1 className="titleErr">Pokemon not found...</h1>
             <div>
-                <img className="img" src={errorImg} alt="pokemon not found" />
+                <img className="errorImg" src={errorImg} alt="pokemon not found" />
             </div>
 
         </div>

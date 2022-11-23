@@ -8,6 +8,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #414141;
+  /* background-image: url('./assets/img/fondo5.webp'); */
+  background-size:cover;
+  background-repeat: no-repeat;
   color: #f0f0f0;
 }
 

@@ -4,8 +4,11 @@
     padding-top: 7em;
     align-items: center;
     min-height: 85vh;
-
+background-image: url('../../assets/img/fondo.jpg');
+background-repeat: no-repeat;
+background-size: cover;
     /* background: #767e2c4d;
+
     margin: 50px 0px;
     border-radius: 5px; */
 }
@@ -54,7 +57,7 @@
     top: 0;
     margin: auto;
     padding: 15px;
-    background: #727272;
+    background: #72727283;
     z-index: 90;
     box-shadow: 0 5px 10px #000;
     transition: .5s;

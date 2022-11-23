@@ -5,6 +5,8 @@
     flex-direction: column;
     align-content: center;
     padding: 5rem;
+    background-image: url('../../assets/img/fondo5.webp');
+    background-size: auto;
 }
 
 .form-content {
