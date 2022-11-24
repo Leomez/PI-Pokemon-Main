@@ -9,6 +9,8 @@ const PokemonCard = (props) => {
                 <h2 className="title">
                     {props.name}
                 </h2>
+                <span>{props.vida}</span>
+                {console.log(props.vida)}
                 <h3>Types: {props.types.map(t => {
                     return (
                         typeof(props.id) === 'string'?<span className="types" key={Object.values(t)}>{`${Object.values(t)} `}</span>:

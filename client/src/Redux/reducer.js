@@ -22,7 +22,9 @@ const initialState = {
     pokemons: [],
     allPokemons: [],
     pokemonDetails: [],   
-    types: []
+    types: [],
+    filterByType: true,
+    filterByCreate: true
 }
 
 export default function reducer(state = initialState, action) {
@@ -74,20 +76,36 @@ export default function reducer(state = initialState, action) {
             const allPokemons = state.allPokemons;
             const leakedPokemons = action.payload === 'All'? allPokemons : allPokemons.filter(p => p.types.includes(action.payload))
             // console.log(action.payload);
-            return {
+            if (leakedPokemons.length === 0) {
+                return {
+                    ...state,
+                    filterByType: false
+                }
+            } else {
+                return {
                 ...state,
                 pokemons: leakedPokemons
-            }
+            }}
         }
 
         case FILTER_BY_CREATE: {
             const allPokemons = state.allPokemons;
             const leakedPokemons = action.payload === 'All'? allPokemons : allPokemons.filter(p => typeof(p.id) === action.payload)
+            
             // console.log(action.payload);
-            return {
-                ...state,
-                pokemons: leakedPokemons
+            if (leakedPokemons.length === 0) {
+                return {
+                    ...state,
+                    filterByCreate: false
+                }
+            } else {
+
+                return {
+                    ...state,
+                    pokemons: leakedPokemons
+                }
             }
+
         }
 
         case ORDER_BY_NAME: {

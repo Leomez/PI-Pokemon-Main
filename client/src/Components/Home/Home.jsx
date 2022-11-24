@@ -54,6 +54,7 @@ const Home = () => {
                     pokemons={pokemons}
                     paginated={paginated}
                 />
+                
 
                 <div className="results">
                     {
@@ -73,6 +74,7 @@ const Home = () => {
                                         img={p.img}
                                         name={p.name}
                                         types={p.types}
+                                        vida={p.hp}
                                     />
                                 </Link>
                             )

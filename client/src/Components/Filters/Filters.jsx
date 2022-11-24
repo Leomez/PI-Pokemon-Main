@@ -7,6 +7,8 @@ import './Filters.css'
 
 const Filter = (props) => {
     const types = useSelector((state) => state.types)
+    const filterByTypes = useSelector((state) => state.filterByType)
+    const filterByCreates = useSelector((state) => state.filterByCreates)
     const dispatch = useDispatch()
     useEffect(() => dispatch(getTypes()), [dispatch])
 
@@ -17,12 +19,14 @@ const Filter = (props) => {
         e.preventDefault();
         props.setCurrentPage(1);
         dispatch(filterByType(e.target.value))
+        // !filterByTypes && alert('there are no pokemon of that type!')
     }
 
     function handleFilterByCreates(e) {
         e.preventDefault();
         props.setCurrentPage(1);
         dispatch(filterByCreate(e.target.value))
+        // !filterByTypes && alert('no pokemon created!')
     }
 
     function handleOrderByName(e) {
